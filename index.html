@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Maxim Filonov</title>
@@ -12,7 +13,7 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -32,7 +33,7 @@
 
     <main>
         <h1>Hello world!</h1>
-        <div class="container">
+        <section>
             <h2>About me</h2>
             <ul>
                 <li>
@@ -72,10 +73,17 @@
                     Don't know what to add, hey AbdelRahman!
                 </li>
             </ul>
-            <div class="game">
-                <canvas>
+        </section>
 
-                </canvas>
+        <div class="game container">
+            <canvas>
+
+            </canvas>
+        </div>
+        <div class="container" id="comic">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
             </div>
         </div>
     </main>
@@ -91,7 +99,8 @@
             <a href="https://www.linkedin.com/in/sl1depengwyn/"><i class="fab fa-linkedin fa-xl"></i></a>
         </div>
     </footer>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script src="js/tetris.js"></script>
+    <script src="js/xkcd.js"></script>
 </body>
 
 </html>
