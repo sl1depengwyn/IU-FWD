@@ -63,12 +63,12 @@ export class Game {
     private readonly _BLOCK_SIZE = 32;
     private readonly _NEXT_BLOCKS = 4;
   
-    private _landed = [];
+    private _landed = [[0]];
     private _currentX = 0;
     private _currentY = 0;
-    private _currentBlockIndex;
-    private _nextBlockIndexes = [];
-    private _currentSchema;
+    private _currentBlockIndex = 0;
+    private _nextBlockIndexes: number[] = [];
+    private _currentSchema = [[0]];
     private _timeBefore = 0;
     private _timeAfter = 0;
     private _stoper = 0;
@@ -76,7 +76,7 @@ export class Game {
   
     public constructor(selector : string) {
       this._canvas = document.querySelector(selector) as HTMLCanvasElement;
-      this._ctx = this._canvas.getContext('2d');
+      this._ctx = this._canvas.getContext('2d') as CanvasRenderingContext2D;
   
       this.run = this.run.bind(this);
       this.update = this.update.bind(this);
@@ -209,7 +209,7 @@ export class Game {
       }
     }
   
-    private onPressKeyboard(event) {
+    private onPressKeyboard(event: KeyboardEvent) {
       switch (event.code) {
         case 'ArrowUp':
           const newSchema = Game.rotateClockwise(this._currentSchema);
@@ -264,7 +264,7 @@ export class Game {
     }
   
     private static getNewArray(width : number, height : number) : Array<Array<number>>{
-      let newArray = [];
+      let newArray: number[][] = [];
       for (let y = 0; y < height; y++) {
         newArray.push([]);
         for(let x = 0; x < width; x++) {
@@ -280,7 +280,7 @@ export class Game {
     }
   
     private static rotateClockwise(arr : Array<Array<number>>) : Array<Array<number>> {
-      let transformedArray = [];
+      let transformedArray: number[][] = [];
   
       const M = arr.length;
       const N = arr[0].length;
@@ -288,7 +288,7 @@ export class Game {
       for (let y = 0; y < N; y++) {
         transformedArray.push([]);
         for (let x = 0; x < M; x++) {
-          transformedArray[y].push([]);
+          transformedArray[y].push(0);
         }
       }
   
