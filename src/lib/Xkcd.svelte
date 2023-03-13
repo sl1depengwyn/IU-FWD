@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-
     interface Comic {
         day: string;
         month: string;
@@ -16,10 +14,8 @@
     }
 
     export let email = "";
-    let comicEl;
 
     async function fetchComic() {
-        // const comicEl = document.getElementById("comic") as HTMLElement;
         const mailParams = new URLSearchParams([["email", email]]);
         const idResponse = await fetch(
             "https://fwd.innopolis.app/api/hw2?" + mailParams.toString()
@@ -41,15 +37,17 @@
         <div />
     </div>
 {:then comic}
-    <h2>{comic.title}</h2>
-    <img alt={comic.alt} src={comic.img} />
-    <p>
-        Uploaded: {new Date(
-            parseInt(comic.year),
-            parseInt(comic.month),
-            parseInt(comic.day)
-        ).toLocaleDateString()}
-    </p>
+    <section class="comic">
+        <h2>{comic.title}</h2>
+        <img alt={comic.alt} src={comic.img} />
+        <p>
+            Uploaded: {new Date(
+                parseInt(comic.year),
+                parseInt(comic.month),
+                parseInt(comic.day)
+            ).toLocaleDateString()}
+        </p>
+    </section>
 {:catch error}
     <p class="error">{error.message}</p>
 {/await}
@@ -78,7 +76,7 @@
         color: red;
     }
 
-    #comic {
+    .comic {
         margin-bottom: 50px;
     }
 
