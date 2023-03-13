@@ -17,7 +17,7 @@
 
   <Tetris />
 
-  <Xkcd />
+  <Xkcd email={"m.filonov@innopolis.university"} />
 </main>
 
 <footer>

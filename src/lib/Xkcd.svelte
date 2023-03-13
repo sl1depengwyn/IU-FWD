@@ -15,14 +15,12 @@
         title: string;
     }
 
+    export let email = "";
     let comicEl;
 
-    onMount(() => {
-        async function fetchComic() {
+    async function fetchComic() {
         // const comicEl = document.getElementById("comic") as HTMLElement;
-        const mailParams = new URLSearchParams([
-            ["email", "m.filonov@innopolis.university"],
-        ]);
+        const mailParams = new URLSearchParams([["email", email]]);
         const idResponse = await fetch(
             "https://fwd.innopolis.app/api/hw2?" + mailParams.toString()
         );
@@ -31,35 +29,30 @@
         const comicResponse = await fetch(
             "https://getxkcd.vercel.app/api/comic?" + params.toString()
         );
-        const comicData: Comic = await comicResponse.json();
-        comicEl.innerHTML = "";
-        var img = document.createElement("img");
-        img.src = comicData.img;
-        img.alt = comicData.alt;
-        var heading = document.createElement("h2");
-        heading.textContent = comicData.title;
-        var dateEl = document.createElement("div");
-        const date = new Date(
-            parseInt(comicData.year),
-            parseInt(comicData.month),
-            parseInt(comicData.day)
-        );
-        dateEl.textContent = "Uploaded: " + date.toLocaleDateString();
-        comicEl.appendChild(heading);
-        comicEl.appendChild(img);
-        comicEl.appendChild(dateEl);
+        return comicResponse.json() as Promise<Comic>;
     }
 
-    fetchComic()
-    })
+    let promise = fetchComic();
 </script>
 
-<div class="container" id="comic" bind:this={comicEl}>
+{#await promise}
     <div class="lds-ripple">
         <div />
         <div />
     </div>
-</div>
+{:then comic}
+    <h2>{comic.title}</h2>
+    <img alt={comic.alt} src={comic.img} />
+    <p>
+        Uploaded: {new Date(
+            parseInt(comic.year),
+            parseInt(comic.month),
+            parseInt(comic.day)
+        ).toLocaleDateString()}
+    </p>
+{:catch error}
+    <p class="error">{error.message}</p>
+{/await}
 
 <style>
     .lds-ripple {
@@ -79,6 +72,10 @@
 
     .lds-ripple div:nth-child(2) {
         animation-delay: -0.5s;
+    }
+
+    .error {
+        color: red;
     }
 
     #comic {
