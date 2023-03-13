@@ -2,15 +2,17 @@
     import Tetris from "tetris-ts";
     import { onMount } from "svelte";
 
+    let element;
+
     onMount(() => {
-        const tetris = new Tetris(document.getElementById("tetris"), () => {});
+        const tetris = new Tetris(element, () => {});
     });
 </script>
 
-<div id="tetris"/>
+<div bind:this={element} id="tetris" />
 
 <style>
     #tetris {
-        width: 320px;
+        width: 400px;
     }
 </style>
