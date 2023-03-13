@@ -1,7 +1,9 @@
-import { fetchComic } from './xkcd'
-import { Game } from './tetris'
+import './app.css'
+import App from './App.svelte'
 
-fetchComic()
+const app = new App({
+  target: document.getElementById('app'),
+})
 
-const game = new Game('#game')
-game.run()
+
+export default app
