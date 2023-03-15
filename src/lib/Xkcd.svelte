@@ -43,7 +43,7 @@
         <p>
             Uploaded: {new Date(
                 parseInt(comic.year),
-                parseInt(comic.month),
+                parseInt(comic.month) - 1,
                 parseInt(comic.day)
             ).toLocaleDateString()}
         </p>
