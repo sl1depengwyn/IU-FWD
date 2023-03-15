@@ -2,7 +2,7 @@
     import Tetris from "tetris-ts";
     import { onMount } from "svelte";
 
-    let element;
+    let element: HTMLElement;
 
     onMount(() => {
         const tetris = new Tetris(element, () => {});
