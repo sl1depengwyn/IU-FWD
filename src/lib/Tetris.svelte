@@ -5,7 +5,7 @@
     let element: HTMLElement;
 
     onMount(() => {
-        const tetris = new Tetris(element, () => {});
+        const _tetris = new Tetris(element, () => {});
     });
 </script>
 

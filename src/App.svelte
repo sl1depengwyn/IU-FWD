@@ -1,5 +1,4 @@
 <script lang="ts">
-  import svelteLogo from "./assets/svelte.svg";
   import linkedinLogo from "./assets/linkedin.svg";
   import githubLogo from "./assets/github.svg";
   import Xkcd from "./lib/Xkcd.svelte";
