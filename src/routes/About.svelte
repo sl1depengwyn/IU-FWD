@@ -1,4 +1,8 @@
-<section >
+<script lang="ts">
+    import { base } from "$app/paths";
+</script>
+
+<section>
     <h2>About me</h2>
     <ul class="list">
         <li>
@@ -43,7 +47,7 @@
             > for personal use and at work
         </li>
         <li>Passionate about Haskell and functional languages</li>
-        <li><a href="/tetris">Play</a> if you get bored reading this</li>
+        <li><a href="{base}/tetris">Play</a> if you get bored reading this</li>
         <li class="stealth">Don't know what to add, hey AbdelRahman!</li>
     </ul>
 </section>

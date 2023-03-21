@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from "$app/stores";
+	import { base } from "$app/paths";
 </script>
 
 <header>
@@ -12,14 +13,22 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">About</a>
+			<li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
+				<a href="{base}/">About</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/random-comic/' ? 'page' : undefined}>
-				<a href="/random-comic">Random comic</a>
+			<li
+				aria-current={$page.url.pathname === "/random-comic/"
+					? "page"
+					: undefined}
+			>
+				<a href="{base}/random-comic">Random comic</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/tetris/' ? 'page' : undefined}>
-				<a href="/tetris">Tetris</a>
+			<li
+				aria-current={$page.url.pathname === "/tetris/"
+					? "page"
+					: undefined}
+			>
+				<a href="{base}/tetris">Tetris</a>
 			</li>
 		</ul>
 	</nav>
@@ -78,7 +87,7 @@
 		height: 100%;
 	}
 
-	li[aria-current='page'] {
+	li[aria-current="page"] {
 		box-shadow: inset 0px -5px #213547;
 	}
 
