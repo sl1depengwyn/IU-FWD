@@ -48,7 +48,7 @@
         </li>
         <li>Passionate about Haskell and functional languages</li>
         <li><a href="{base}/tetris">Play</a> if you get bored reading this</li>
-        <li class="stealth">Don't know what to add, hey AbdelRahman!</li>
+        <li class="stealth">Don't know what to add, hey Ahmed!</li>
     </ul>
 </section>
 
