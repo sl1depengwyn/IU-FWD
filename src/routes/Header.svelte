@@ -13,18 +13,18 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
+			<li aria-current={$page.url.pathname === base.toString() + "/" ? "page" : undefined}>
 				<a href="{base}/">About</a>
 			</li>
 			<li
-				aria-current={$page.url.pathname === "/random-comic/"
+				aria-current={$page.url.pathname === base.toString() +  "/random-comic/"
 					? "page"
 					: undefined}
 			>
 				<a href="{base}/random-comic">Random comic</a>
 			</li>
 			<li
-				aria-current={$page.url.pathname === "/tetris/"
+				aria-current={$page.url.pathname === base.toString() +  "/tetris/"
 					? "page"
 					: undefined}
 			>
