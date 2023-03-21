@@ -4,7 +4,7 @@
 </script>
 
 <header>
-	<a href="/">
+	<a href="{base}/">
 		<h1 class="title">Maxim Filonov personal website</h1>
 	</a>
 
